@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,7 +31,7 @@ namespace gt4_csharp_demo.Controllers
             string pass_token = Request.Query["pass_token"];
             string gen_time = Request.Query["gen_time"];
 
-            // 生成签名
+            // 生成签名 
             // 生成签名使用标准的hmac算法，使用用户当前完成验证的流水号lot_number作为原始消息message，使用客户验证私钥作为key
             // 采用sha256散列算法将message和key进行单向散列生成最终的 “sign_token” 签名
             string sign_token = HmacSha256Encode(lot_number, CAPTCHA_KEY);
@@ -46,6 +46,12 @@ namespace gt4_csharp_demo.Controllers
 
             // 返回json数据: {"result": "success", "reason": "", "captcha_args": {}}
             string resBody = HttpPost(URL, paramDict);
+
+            if(resBody == null)
+            {   
+                System.Diagnostics.Debug.WriteLine("geetest服务异常");
+                return Json(new { result = "fail" });
+            }
             Dictionary<string, object> resDict = JsonSerializer.Deserialize<Dictionary<string, object>>(resBody);
 
             // 根据极验返回的用户验证状态, 网站主进行自己的业务逻辑
@@ -99,13 +105,14 @@ namespace gt4_csharp_demo.Controllers
                 reqStream = req.GetRequestStream();
                 reqStream.Write(bytes, 0, bytes.Length);
                 HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+
                 resStream = res.GetResponseStream();
                 StreamReader reader = new StreamReader(resStream, Encoding.GetEncoding("utf-8"));
                 return reader.ReadToEnd();
             }
             catch (Exception e)
             {
-                throw e;
+                return null;
             }
             finally
             {
