@@ -49,6 +49,7 @@ namespace gt4_csharp_demo.Controllers
 
             if(resBody == null)
             {   
+                // 当请求Geetest服务接口出现异常，应放行通过，以免阻塞正常业务。
                 System.Diagnostics.Debug.WriteLine("geetest服务异常");
                 return Json(new { result = "fail" });
             }
