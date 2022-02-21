@@ -40,18 +40,18 @@
 |reason|string|校验结果说明|
 |captcha_args|dict|验证输出参数|
 
-`en:`
+*en:*
 ## Run demo
-1.Version: .NET Core 3.1
-2.Launch the .NET project
-3.Visit http://localhost:64335 in browser to see demo interface
+1.Version: .NET Core 3.1  
+2.Launch the .NET project  
+3.Visit http://localhost:64335 in browser to see demo interface  
 
 ## Access process
-1.Configure GeeTest parameters
-2.Get front-end parameters
-3.Generate signature
-4.Request GeeTest service to validate user legitimacy
-5.Client follows its own business logic according to verification result returned from GeeTest server
+1.Configure GeeTest parameters  
+2.Get front-end parameters  
+3.Generate signature  
+4.Request GeeTest service to validate user legitimacy  
+5.Client follows its own business logic according to verification result returned from GeeTest server  
 
 ## Secondary validation interface
 |Item|Description|
