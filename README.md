@@ -39,3 +39,43 @@
 |result|string|二次校验结果|
 |reason|string|校验结果说明|
 |captcha_args|dict|验证输出参数|
+
+`en:`
+## Run demo
+1.Version: .NET Core 3.1
+2.Launch the .NET project
+3.Visit http://localhost:64335 in browser to see demo interface
+
+## Access process
+1.Configure GeeTest parameters
+2.Get front-end parameters
+3.Generate signature
+4.Request GeeTest service to validate user legitimacy
+5.Client follows its own business logic according to verification result returned from GeeTest server
+
+## Secondary validation interface
+|Item|Description|
+|---|---|
+|API address|<http://gcaptcha4.geetest.com/validate>|
+|Request method|GET/POST|
+|Content type|application/x-www-form-urlencoded|
+|Response format|json|
+
+1.Request parameters
+
+|Parameter Name|Type|Description|
+|---|---|---|
+|lot_number|string|Verify serial number|
+|captcha_output|string|Verify output information|
+|pass_token|string|Token of the verification|
+|gen_time|string|Timestamp of the verification|
+|captcha_id|string|CAPTCHA ID|
+|sign_token|string|Verification signature|
+
+2.Response parameters
+
+|Parameter Name|Type|Description|
+|---|---|---|
+|result|string|Secondary validation result|
+|reason|string|Validation result description|
+|captcha_args|dict|Verify output parameters|
