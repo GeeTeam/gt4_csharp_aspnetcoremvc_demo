@@ -2,9 +2,9 @@
 1.版本: .NET Core 3.1  
 2.启动流程:  
 ```
-启动项目
+dotnet run
 ```
-3.在浏览器中访问<http://localhost:64335>即可看到demo界面  
+3.在浏览器中访问<http://localhost:5000>即可看到demo界面  
 
 ## 接入流程
 1.配置极验参数  
