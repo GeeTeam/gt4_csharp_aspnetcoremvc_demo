@@ -44,7 +44,10 @@ dotnet run
 ## Run demo
 1.Version: .NET Core 3.1  
 2.Launch the .NET project  
-3.Visit http://localhost:64335 in browser to see demo interface  
+```
+dotnet run
+```
+3.Visit <http://localhost:5000> in browser to see demo interface  
 
 ## Access process
 1.Configure GeeTest parameters  
